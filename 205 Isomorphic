@@ -1,0 +1,20 @@
+#time Complexity - O(n)
+#Space COmplexity - O(n)
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        first={}
+        second={}
+        if len(s)!=len(t):
+            return false
+        else:
+            le=len(t)
+            for i in range(0,le):
+                if s[i] in first.keys() and first[s[i]] != t[i]:
+                    return False
+                if t[i] in second.keys() and second[t[i]] !=s[i]:
+                    return False
+                else:
+                    first[s[i]]=t[i]
+                    second[t[i]]=s[i]
+            return True
+
